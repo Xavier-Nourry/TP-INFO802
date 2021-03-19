@@ -9,7 +9,7 @@ from spyne.server.wsgi import WsgiApplication
 class DeliveryCostsService(ServiceBase):
     @rpc(Float, Float, _returns=Float)
     def deliveryCost(ctx, distance, weight):
-        return distance * weight / 100 # TODO : voir si calcul plus réaliste
+        return distance * weight / 100.0 # TODO : voir si calcul plus réaliste
         
 
 application = Application([DeliveryCostsService],
