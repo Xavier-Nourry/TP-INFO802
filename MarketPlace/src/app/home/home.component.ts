@@ -11,7 +11,12 @@ import { AppService } from '../app.service';
 })
 export class HomeComponent {
   /** Based on the screen size, switch from standard to one column per row */
-  cards = [];
+  cards = [
+    { title: 'Card 1', cols: 2, rows: 1 },
+    { title: 'Card 2', cols: 2, rows: 1 },
+    { title: 'Card 3', cols: 2, rows: 1 },
+    { title: 'Card 4', cols: 2, rows: 1 }
+  ];
   cardsForHandset = [];
   cardsForWeb = [];
   
