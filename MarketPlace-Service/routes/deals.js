@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  let jsonresponse = {
+  let jsonResponse = {
     "handsetCards": [
       { title: 'Card 1', cols: 2, rows: 1 },
       { title: 'Card 2', cols: 2, rows: 1 },
@@ -17,7 +17,7 @@ router.get('/', function(req, res, next) {
       { title: 'Card 4', cols: 1, rows: 1 }
     ]
   };
-  res.json(jsonresponse);
+  res.json(jsonResponse);
 });
 
 module.exports = router;

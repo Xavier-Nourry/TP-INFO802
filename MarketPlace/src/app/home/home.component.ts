@@ -40,7 +40,7 @@ export class HomeComponent {
         this.loadCards();
       },
       error => {
-        
+        //alert("Une erreur s'est produite lors de la réception des données du serveur. Veuillez réessayer plus tard.");
       }
     );
   }
