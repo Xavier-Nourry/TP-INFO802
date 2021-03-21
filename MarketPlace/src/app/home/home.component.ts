@@ -11,11 +11,11 @@ import { AppService } from '../app.service';
 })
 export class HomeComponent {
   /** Based on the screen size, switch from standard to one column per row */
-  cards = [
-    { title: 'Card 1', cols: 2, rows: 1 },
-    { title: 'Card 2', cols: 2, rows: 1 },
-    { title: 'Card 3', cols: 2, rows: 1 },
-    { title: 'Card 4', cols: 2, rows: 1 }
+  cards = [ // TODO : voir si meilleure manière de faire
+    { picture: '', title: 'Card 1', cols: 2, rows: 1 },
+    { picture: '', title: 'Card 2', cols: 2, rows: 1 },
+    { picture: '', title: 'Card 3', cols: 2, rows: 1 },
+    { picture: '', title: 'Card 4', cols: 2, rows: 1 }
   ];
   cardsForHandset = [];
   cardsForWeb = [];
@@ -45,12 +45,16 @@ export class HomeComponent {
         this.loadCards();
       },
       error => {
-        //alert("Une erreur s'est produite lors de la réception des données du serveur. Veuillez réessayer plus tard.");
+        alert("Une erreur s'est produite lors de la réception des données du serveur. Veuillez réessayer plus tard.");
       }
     );
   }
 
   loadCards(){ // Carte correspondante à l'écran (responsive)
     this.cards = this.isHandset ? this.cardsForHandset : this.cardsForWeb;
+  }
+
+  getImage(picture: string): string{
+    return 'url('+ picture +')';
   }
 }

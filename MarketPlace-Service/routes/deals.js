@@ -1,9 +1,10 @@
 var express = require('express');
+var dbAbstractionLayer = require('../public/javascripts/DB_AbastractionLayer');
 var router = express.Router();
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  let jsonResponse = {
+  /*let jsonResponse = {
     "handsetCards": [
       { title: 'Card 1', cols: 2, rows: 1 },
       { title: 'Card 2', cols: 2, rows: 1 },
@@ -17,7 +18,12 @@ router.get('/', function(req, res, next) {
       { title: 'Card 4', cols: 1, rows: 1 }
     ]
   };
-  res.json(jsonResponse);
+  res.json(jsonResponse);*/
+  dbAbstractionLayer.queryDealsCollection().then(response => {
+    res.json(response);
+  }).catch(error => {
+    res.status(500).json({});
+  })
 });
 
 module.exports = router;
